@@ -64,4 +64,22 @@ defmodule Auth0Ex.Authentication.Token do
 
     do_post(@path, payload)
   end
+
+    @doc """
+  This is the OAuth 2.0 grant that server processes utilize in order to access an API.
+  Use this endpoint to refresh an access_token by using a previously provided refresh_token
+  (a Client Id and a Client Secret).
+
+      iex> Auth0Ex.Authentication.Token.client_credentials("client_id", "client_secret", "API_IDENTIFIER_aud")
+  """
+  def refresh_token(client_id, client_secret, refresh_token, audience) do
+    payload = %{
+      client_id: client_id,
+      client_secret: client_secret,
+      audience: audience,
+      grant_type: "refresh_token"
+    }
+
+    do_post(@path, payload)
+  end
 end
