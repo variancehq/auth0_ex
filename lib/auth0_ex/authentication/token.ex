@@ -77,6 +77,7 @@ defmodule Auth0Ex.Authentication.Token do
       client_id: client_id,
       client_secret: client_secret,
       audience: audience,
+      refresh_token: refresh_token,
       grant_type: "refresh_token"
     }
 
